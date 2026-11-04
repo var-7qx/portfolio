@@ -1,0 +1,609 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#080d18">
+  <meta name="description" content="VAR-7QX — IT fresher portfolio focused on IT support, technical support, IT operations and cybersecurity fundamentals.">
+  <title>VAR-7QX | IT Portfolio</title>
+  <style>
+    :root{--bg:#080d18;--panel:#101a2b;--panel2:#0c1422;--text:#edf3ff;--muted:#9eacc2;--line:#22314a;--blue:#66a8ff;--cyan:#69e0df;--max:1120px}
+    *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:radial-gradient(ellipse at 80% 0%,#142747 0,transparent 38%),var(--bg);color:var(--text);font:16px/1.65 Inter,ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif}
+    a{color:inherit;text-decoration:none}.wrap{width:min(var(--max),calc(100% - 40px));margin:auto}
+    header{position:sticky;top:0;z-index:10;background:#080d18e8;backdrop-filter:blur(14px);border-bottom:1px solid #1d2a40}
+    nav{height:72px;display:flex;align-items:center;justify-content:space-between;gap:24px}.brand{font-weight:850;letter-spacing:.13em;color:var(--blue)}.navlinks{display:flex;gap:24px;color:var(--muted);font-size:14px}.navlinks a:hover,.textlink:hover{color:var(--cyan)}
+    .hero{padding:100px 0 82px;display:grid;grid-template-columns:1.4fr .8fr;gap:56px;align-items:center;min-height:570px}
+    .eyebrow{color:var(--cyan);font-size:13px;letter-spacing:.18em;text-transform:uppercase;font-weight:700}.hero h1{font-size:clamp(44px,7vw,76px);line-height:1.04;letter-spacing:-.055em;margin:18px 0}.hero h1 span{color:var(--blue)}.hero p{color:var(--muted);font-size:18px;max-width:680px}
+    .actions{display:flex;gap:13px;flex-wrap:wrap;margin-top:30px}.btn{display:inline-flex;align-items:center;justify-content:center;padding:12px 19px;border-radius:9px;border:1px solid var(--line);font-weight:700;font-size:14px;transition:.2s}.btn.primary{background:linear-gradient(120deg,#367fe0,#2865bd);border-color:#4389e9;color:white}.btn:hover{transform:translateY(-2px);border-color:var(--blue)}
+    .hero-card{background:linear-gradient(160deg,#14243c,#0d1625);border:1px solid #2a3d5c;border-radius:20px;padding:28px;box-shadow:0 24px 70px #0005}.avatar{width:74px;height:74px;border-radius:18px;background:linear-gradient(135deg,#367fe0,#54d3d0);display:grid;place-items:center;color:#06101e;font-size:25px;font-weight:900;letter-spacing:-2px}.hero-card h3{margin:20px 0 4px;font-size:21px}.hero-card .muted{color:var(--muted);font-size:14px}.mini-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:24px}.mini{padding:13px;background:#0a1321;border:1px solid var(--line);border-radius:10px}.mini b{display:block;color:var(--cyan);font-size:19px}.mini small{color:var(--muted)}
+    section{padding:74px 0;border-top:1px solid #1b2940}.section-head{margin-bottom:30px}.kicker{color:var(--cyan);font-size:12px;text-transform:uppercase;letter-spacing:.16em;font-weight:800}.section-head h2{font-size:clamp(28px,4vw,40px);letter-spacing:-.035em;margin:7px 0}.section-head p,.about p{color:var(--muted);max-width:760px}
+    .about-grid{display:grid;grid-template-columns:1.2fr .8fr;gap:28px}.panel,.card{background:var(--panel);border:1px solid var(--line);border-radius:15px;padding:24px}.facts{display:grid;gap:14px}.fact{display:flex;justify-content:space-between;gap:15px;border-bottom:1px solid var(--line);padding-bottom:12px}.fact:last-child{border:0;padding:0}.fact span:first-child{color:var(--muted)}
+    .skills{display:grid;grid-template-columns:repeat(3,1fr);gap:15px}.skill h3,.card h3{margin:0 0 12px;font-size:17px}.tags{display:flex;flex-wrap:wrap;gap:8px}.tag{border:1px solid #2b4262;background:#0b1525;color:#c8d8f1;border-radius:7px;padding:6px 10px;font-size:13px}
+    .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}.card{display:flex;flex-direction:column;min-height:190px}.card p{color:var(--muted);margin:0}.card .meta{margin-top:auto;padding-top:22px;color:var(--cyan);font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase}
+    .timeline{display:grid;gap:15px}.timeline .card{min-height:0}.timeline small{color:var(--cyan);font-weight:700}.timeline p{margin-top:8px}
+    .contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}.contact-item{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:17px}.contact-item small{display:block;color:var(--muted);margin-bottom:4px}.contact-item a{overflow-wrap:anywhere;color:#cfe1ff}.contact-item a:hover{color:var(--cyan)}
+    footer{padding:28px 0;color:var(--muted);font-size:13px;border-top:1px solid var(--line)}footer .wrap{display:flex;justify-content:space-between;gap:15px;flex-wrap:wrap}
+
+    /* Lab Walkthroughs Interactive Section */
+    .wt-controls{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:14px;margin-bottom:24px;padding:14px 18px;background:var(--panel2);border:1px solid var(--line);border-radius:12px}
+    .wt-filters{display:flex;flex-wrap:wrap;gap:12px;align-items:center}
+    .wt-filter-group{display:inline-flex;align-items:center;gap:6px}
+    .wt-filter-label{font-size:11px;text-transform:uppercase;letter-spacing:.09em;color:var(--muted);font-weight:700}
+    .wt-btn-group{display:inline-flex;background:#060d19;border:1px solid var(--line);border-radius:8px;padding:2px;gap:2px}
+    .wt-filter-btn{background:transparent;border:0;color:var(--muted);font-size:12px;font-weight:600;padding:5px 11px;border-radius:6px;cursor:pointer;transition:.15s}
+    .wt-filter-btn:hover{color:var(--text)}
+    .wt-filter-btn.active{background:#162a4a;color:var(--cyan);box-shadow:0 2px 8px #0004}
+    .wt-status-wrap{display:flex;align-items:center;gap:12px;font-size:12px;color:var(--muted)}
+    .wt-status-badge{display:inline-flex;align-items:center;gap:6px;padding:4px 9px;border-radius:20px;background:#091d17;border:1px solid #144634;color:#4ade80;font-weight:600;font-size:11px}
+    .wt-pulse{width:7px;height:7px;border-radius:50%;background:#4ade80;box-shadow:0 0 8px #4ade80;animation:wtPulse 2s infinite}
+    @keyframes wtPulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.4;transform:scale(.85)}}
+    .wt-refresh-btn{background:#0a1423;border:1px solid var(--line);color:var(--muted);padding:5px 11px;border-radius:7px;cursor:pointer;font-size:12px;font-weight:600;transition:.15s;display:inline-flex;align-items:center;gap:5px}
+    .wt-refresh-btn:hover{color:var(--cyan);border-color:var(--blue)}
+
+    .wt-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:20px}
+    .wt-card{background:var(--panel);border:1px solid var(--line);border-radius:15px;padding:24px;display:flex;flex-direction:column;transition:transform .2s,border-color .2s,box-shadow .2s;position:relative}
+    .wt-card:hover{transform:translateY(-3px);border-color:#36537c;box-shadow:0 12px 30px #00000045}
+    .wt-card-header{display:flex;justify-content:space-between;align-items:flex-start;gap:10px;margin-bottom:14px;flex-wrap:wrap}
+    .wt-badges{display:flex;flex-wrap:wrap;gap:6px}
+    .wt-badge{font-size:11px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;padding:4px 8px;border-radius:6px}
+    .wt-badge-platform{background:#132640;border:1px solid #234370;color:#9ec5fe}
+    .wt-badge-cat{background:#0d242c;border:1px solid #164e52;color:#69e0df}
+    .wt-badge-diff-easy{background:#0e2a1e;border:1px solid #1c5e3f;color:#4ade80}
+    .wt-badge-diff-medium{background:#2a200e;border:1px solid #5e461c;color:#fbbf24}
+    .wt-badge-diff-hard{background:#2a1016;border:1px solid #5e1c2a;color:#f87171}
+    .wt-points{font-size:12px;font-weight:700;color:var(--cyan);background:#091524;border:1px solid var(--line);padding:3px 8px;border-radius:6px}
+    .wt-card h3{margin:0 0 10px;font-size:20px;color:var(--text)}
+    .wt-card p{color:var(--muted);font-size:14px;line-height:1.6;margin:0 0 16px;flex-grow:1}
+    .wt-finding{background:#09121e;border-left:3px solid var(--cyan);padding:8px 12px;border-radius:0 6px 6px 0;margin-bottom:16px;font-size:13px}
+    .wt-finding-title{font-size:10px;text-transform:uppercase;letter-spacing:.08em;color:var(--cyan);font-weight:800;display:block;margin-bottom:2px}
+    .wt-finding-desc{color:#cfe1ff}
+    .wt-tools{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:20px}
+    .wt-tool-tag{font-size:11px;padding:3px 8px;border-radius:5px;background:#091321;border:1px solid #1f314c;color:#a9bfdb}
+    .wt-card-action{margin-top:auto;padding-top:14px;border-top:1px solid #1b2940;display:flex;justify-content:space-between;align-items:center}
+    .wt-link{color:var(--cyan);font-weight:700;font-size:13px;display:inline-flex;align-items:center;gap:6px;transition:.2s}
+    .wt-link:hover{color:#a5f3fc;gap:9px}
+
+    .wt-skeleton{background:linear-gradient(90deg,#101a2b 25%,#16233a 50%,#101a2b 75%);background-size:200% 100%;animation:wtShimmer 1.6s infinite;border-radius:15px;border:1px solid var(--line);min-height:240px;padding:24px}
+    @keyframes wtShimmer{0%{background-position:200% 0}100%{background-position:-200% 0}}
+    .wt-empty,.wt-error{grid-column:1/-1;background:var(--panel);border:1px solid var(--line);border-radius:15px;padding:36px 20px;text-align:center;color:var(--muted)}
+    .wt-error{border-color:#5c242e;background:#180f14}
+    .wt-error h4{color:#f87171;margin:0 0 8px;font-size:17px}
+    .wt-retry-btn{margin-top:14px;display:inline-block;padding:8px 16px;background:#24161b;border:1px solid #772b38;color:#fca5a5;border-radius:8px;font-weight:600;font-size:13px;cursor:pointer}
+    .wt-retry-btn:hover{background:#3b1e27}
+
+    @media(max-width:960px){.cards{grid-template-columns:repeat(2,1fr)}}
+    @media(max-width:780px){
+      .hero{grid-template-columns:1fr;padding:70px 0 55px;gap:30px}
+      .about-grid{grid-template-columns:1fr}
+      .skills{grid-template-columns:1fr 1fr}
+      .cards{grid-template-columns:1fr}
+      .navlinks{gap:14px;font-size:13px}
+      .wt-controls{flex-direction:column;align-items:flex-start}
+      .wt-status-wrap{width:100%;justify-content:space-between}
+    }
+    @media(max-width:520px){
+      .wrap{width:min(100% - 28px,var(--max))}
+      nav{height:62px}
+      .navlinks{gap:8px}
+      .navlinks a{font-size:11px}
+      .hero h1{font-size:47px}
+      .skills,.contact-grid,.wt-grid{grid-template-columns:1fr}
+      .hero p{font-size:16px}
+      section{padding:58px 0}
+      .wt-filter-group{width:100%}
+      .wt-btn-group{width:100%;display:flex}
+      .wt-filter-btn{flex:1;text-align:center;padding:6px 4px;font-size:11px}
+    }
+  </style>
+</head>
+<body>
+<header><div class="wrap"><nav>
+  <a class="brand" href="#home">VAR-7QX</a>
+  <div class="navlinks">
+    <a href="#about">About</a>
+    <a href="#skills">Skills</a>
+    <a href="#projects">Projects</a>
+    <a href="#walkthroughs">Walkthroughs</a>
+    <a href="#certifications">Training</a>
+    <a href="#contact">Contact</a>
+  </div>
+</nav></div></header>
+<main>
+  <div class="wrap">
+    <section class="hero" id="home" style="border:0">
+      <div>
+        <div class="eyebrow">IT Fresher · Bengaluru, India</div>
+        <h1>Building a career in <span>IT &amp; Technology.</span></h1>
+        <p>Computer Science graduate with hands-on exposure to technical tools, cybersecurity labs and academic technology projects. Interested in starting a career in IT Support, Technical Support, Application Support or IT Operations.</p>
+        <div class="actions">
+          <a class="btn primary" href="#contact">Contact Me</a>
+          <a class="btn" href="https://github.com/var-7qx/cybersecurity-lab-walkthroughs" target="_blank" rel="noopener">View GitHub</a>
+          <a class="btn" href="https://www.linkedin.com/in/aswinsanthosh-cyber" target="_blank" rel="noopener">LinkedIn Profile</a>
+        </div>
+      </div>
+      <aside class="hero-card">
+        <div class="avatar">7QX</div>
+        <h3>VAR-7QX</h3>
+        <div class="muted">Computer Science · Entry-level IT roles</div>
+        <div class="mini-grid">
+          <div class="mini"><b>2026</b><small>Graduation year</small></div>
+          <div class="mini"><b>4</b><small>Languages</small></div>
+          <div class="mini"><b>3</b><small>Technical focus areas</small></div>
+          <div class="mini"><b>India</b><small>Based in Bengaluru</small></div>
+        </div>
+      </aside>
+    </section>
+
+    <section id="about">
+      <div class="section-head"><div class="kicker">01 / About</div><h2>About Me</h2></div>
+      <div class="about-grid">
+        <div class="panel">
+          <p>I am a Computer Science graduate interested in practical IT work, technical troubleshooting and technology operations. My learning includes hands-on cybersecurity lab exercises and exposure to tools used for network analysis and security testing.</p>
+          <p>I am seeking an entry-level opportunity where I can apply my technical foundation, learn from experienced teams and contribute to reliable IT services.</p>
+        </div>
+        <div class="panel facts">
+          <div class="fact"><span>Full name</span><strong>Aswin Santhosh</strong></div>
+          <div class="fact"><span>Location</span><strong>Bengaluru, Karnataka</strong></div>
+          <div class="fact"><span>Education</span><strong>B.Tech · Computer Science</strong></div>
+          <div class="fact"><span>College</span><strong>Younus College of Engineering and Technology</strong></div>
+          <div class="fact"><span>Study period</span><strong>Nov 2022 – Apr 2026</strong></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="skills">
+      <div class="section-head"><div class="kicker">02 / Technical toolkit</div><h2>Skills &amp; Tools</h2><p>Tools and areas included in my learning and hands-on practice.</p></div>
+      <div class="skills">
+        <div class="card"><h3>Security &amp; Network Tools</h3><div class="tags"><span class="tag">Kali Linux</span><span class="tag">Nmap</span><span class="tag">Wireshark</span><span class="tag">Metasploit</span><span class="tag">Burp Suite</span></div></div>
+        <div class="card"><h3>Career Focus</h3><div class="tags"><span class="tag">IT Support</span><span class="tag">Technical Support</span><span class="tag">Application Support</span><span class="tag">IT Operations</span></div></div>
+        <div class="card"><h3>Languages</h3><div class="tags"><span class="tag">Malayalam</span><span class="tag">English</span><span class="tag">Tamil</span><span class="tag">Telugu</span></div></div>
+      </div>
+    </section>
+
+    <section id="projects">
+      <div class="section-head"><div class="kicker">03 / Selected work</div><h2>Projects &amp; Lab Practice</h2><p>Academic projects and documented hands-on cybersecurity learning.</p></div>
+      <div class="cards">
+        <article class="card"><h3>AI-Powered Smart Spectacles</h3><p>Academic project focused on combining artificial intelligence with a smart-wearable concept.</p><div class="meta">Academic Project</div></article>
+        <article class="card"><h3>Intelligent Power Management Module</h3><p>Academic project focused on an intelligent approach to managing power usage.</p><div class="meta">Academic Project</div></article>
+        <article class="card"><h3>Cybersecurity Lab Walkthroughs</h3><p>Hands-on lab documentation covering methodology, commands, observations and explanations for learning and revision.</p><div class="meta">GitHub Documentation</div><a class="textlink" href="#walkthroughs">View live walkthroughs below ↓</a></article>
+      </div>
+    </section>
+
+    <!-- Dedicated Cybersecurity Lab Walkthroughs Section -->
+    <section id="walkthroughs">
+      <div class="section-head">
+        <div class="kicker">04 / Practical Documentation</div>
+        <h2>Cybersecurity Lab Walkthroughs</h2>
+        <p>Hands-on lab walkthroughs and vulnerability analyses systematically documented and automatically synced from my <a class="textlink" href="https://github.com/var-7qx/cybersecurity-lab-walkthroughs" target="_blank" rel="noopener">GitHub repository</a>.</p>
+      </div>
+
+      <div class="wt-controls">
+        <div class="wt-filters">
+          <div class="wt-filter-group">
+            <span class="wt-filter-label">Platform:</span>
+            <div class="wt-btn-group" id="platformFilters">
+              <button class="wt-filter-btn active" data-platform="all">All</button>
+              <button class="wt-filter-btn" data-platform="Pentest Garage">Pentest Garage</button>
+              <button class="wt-filter-btn" data-platform="INE Security">INE Security</button>
+            </div>
+          </div>
+          <div class="wt-filter-group">
+            <span class="wt-filter-label">Difficulty:</span>
+            <div class="wt-btn-group" id="difficultyFilters">
+              <button class="wt-filter-btn active" data-difficulty="all">All</button>
+              <button class="wt-filter-btn" data-difficulty="Easy">Easy</button>
+              <button class="wt-filter-btn" data-difficulty="Medium">Medium</button>
+              <button class="wt-filter-btn" data-difficulty="Hard">Hard</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="wt-status-wrap">
+          <div class="wt-status-badge">
+            <span class="wt-pulse"></span>
+            <span id="wtSyncStatus">Live Sync</span>
+          </div>
+          <span id="wtCounter">Checking repository...</span>
+          <button class="wt-refresh-btn" id="wtRefreshBtn" title="Check GitHub for newly pushed labs">↻ Refresh</button>
+        </div>
+      </div>
+
+      <div class="wt-grid" id="walkthroughsGrid">
+        <!-- Loading State Skeleton -->
+        <div class="wt-skeleton"></div>
+        <div class="wt-skeleton"></div>
+      </div>
+    </section>
+
+    <section id="certifications">
+      <div class="section-head"><div class="kicker">05 / Learning</div><h2>Certifications &amp; Training</h2></div>
+      <div class="timeline">
+        <article class="card"><small>Cyberwarfare Labs · November 2026</small><h3>Certified Blue Team Fundamentals</h3><p>Training covering security operations, cyber threat hunting and intelligence, incident response, digital forensics, and analysis of web-, network- and host-based attacks.</p><p style="margin-top:10px"><a class="textlink" href="https://labs.cyberwarfare.live/credential/achievement/6ae9b105f88c7cc4d409fc1a" target="_blank" rel="noopener">View credential →</a></p></article>
+        <article class="card"><small>ICT Academy of Kerala</small><h3>Machine Learning &amp; Artificial Intelligence Monsoon Internship</h3><p>Internship training in machine learning and artificial intelligence.</p></article>
+        <article class="card"><small>Techmaghi · KSHITIJ, IIT Kharagpur</small><h3>Electric Vehicle Workshop</h3><p>Workshop exposure to electric vehicle concepts and technology.</p></article>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="section-head"><div class="kicker">06 / Get in touch</div><h2>Contact</h2><p>Open to entry-level IT opportunities in Bengaluru and suitable IT teams.</p></div>
+      <div class="contact-grid">
+        <div class="contact-item"><small>Email</small><a href="mailto:aswinsanthosh070@gmail.com">aswinsanthosh070@gmail.com</a></div>
+        <div class="contact-item"><small>Phone</small><a href="tel:+918921871992">+91 8921871992</a></div>
+        <div class="contact-item"><small>LinkedIn</small><a href="https://www.linkedin.com/in/aswinsanthosh-cyber" target="_blank" rel="noopener">linkedin.com/in/aswinsanthosh-cyber</a></div>
+        <div class="contact-item"><small>GitHub</small><a href="https://github.com/var-7qx" target="_blank" rel="noopener">github.com/var-7qx</a></div>
+      </div>
+    </section>
+  </div>
+</main>
+<footer><div class="wrap"><span>© 2026 VAR-7QX · Personal Portfolio</span><span>Designed for IT career opportunities</span></div></footer>
+
+<!-- GitHub Auto-Discovery Engine -->
+<script>
+  (function () {
+    const REPO_OWNER = 'var-7qx';
+    const REPO_NAME = 'cybersecurity-lab-walkthroughs';
+    const REPO_BRANCH = 'main';
+    const CACHE_KEY = 'var7qx_walkthroughs_cache_v2';
+    const CACHE_TTL_MS = 15 * 60 * 1000; // 15 minutes client cache
+
+    let allLabs = [];
+    let currentPlatformFilter = 'all';
+    let currentDifficultyFilter = 'all';
+
+    const grid = document.getElementById('walkthroughsGrid');
+    const counter = document.getElementById('wtCounter');
+    const statusText = document.getElementById('wtSyncStatus');
+    const refreshBtn = document.getElementById('wtRefreshBtn');
+
+    // Strict path analyzer to filter only completed lab README files
+    function parseLabEntry(path) {
+      if (!path.endsWith('.md')) return null;
+
+      const parts = path.split('/');
+      const fileName = parts[parts.length - 1];
+
+      // Must reside in an authorized platform directory
+      const platformRaw = parts[0];
+      if (platformRaw !== 'Pentest-Garage' && platformRaw !== 'INE') {
+        return null;
+      }
+
+      // Exclude platform root indexes (e.g. INE/README.md or Pentest-Garage/README.md)
+      if (parts.length <= 2) {
+        return null;
+      }
+
+      // Exclude known non-lab directories (category indexes, track indexes, difficulty folders)
+      const parentDir = parts[parts.length - 2];
+      const nonLabDirNames = [
+        'web-security', 'penetration-testing-basics', 'web-application-pentest',
+        'advanced-pentest-concepts', 'cloud-security', 'network-security',
+        'easy', 'medium', 'hard', 'insane', 'beginner', 'intermediate', 'advanced'
+      ];
+
+      const parentLower = parentDir.toLowerCase();
+      if (nonLabDirNames.includes(parentLower) || parentLower === platformRaw.toLowerCase()) {
+        return null;
+      }
+
+      const platform = platformRaw === 'Pentest-Garage' ? 'Pentest Garage' : (platformRaw === 'INE' ? 'INE Security' : platformRaw);
+
+      let category = 'General';
+      let difficulty = 'Easy';
+      let labName = parentDir;
+
+      if (platformRaw === 'Pentest-Garage') {
+        if (parts.length === 5) {
+          // Format: Pentest-Garage / Category / Difficulty / LabName / README.md
+          category = parts[1].replace(/-/g, ' ');
+          difficulty = parts[2];
+          labName = parts[3];
+        } else if (parts.length === 4) {
+          category = parts[1].replace(/-/g, ' ');
+          labName = parts[2];
+        } else {
+          return null;
+        }
+      } else if (platformRaw === 'INE') {
+        if (parts.length === 5) {
+          // Format: INE / Track / Difficulty / LabName / README.md
+          category = parts[1].replace(/-/g, ' ');
+          difficulty = parts[2];
+          labName = parts[3];
+        } else if (parts.length === 4) {
+          category = parts[1].replace(/-/g, ' ');
+          labName = parts[2];
+        } else {
+          return null;
+        }
+      }
+
+      // Normalize difficulty string (Easy, Medium, Hard)
+      const normalizedDifficulty = difficulty.charAt(0).toUpperCase() + difficulty.slice(1).toLowerCase();
+
+      return {
+        path: path,
+        platform: platform,
+        category: category,
+        difficulty: normalizedDifficulty,
+        labName: labName.replace(/-/g, ' '),
+        points: '',
+        summary: '',
+        vulnerability: '',
+        tools: [],
+        githubUrl: `https://github.com/${REPO_OWNER}/${REPO_NAME}/blob/${REPO_BRANCH}/${path}`,
+        rawUrl: `https://raw.githubusercontent.com/${REPO_OWNER}/${REPO_NAME}/${REPO_BRANCH}/${path}`
+      };
+    }
+
+    // Enrich lab details by parsing the raw markdown document
+    async function enrichLab(lab) {
+      try {
+        const res = await fetch(lab.rawUrl);
+        if (!res.ok) return lab;
+        const text = await res.text();
+
+        // Exclude planned, placeholder or empty lab READMEs
+        if (/No completed labs yet|Status\s*\|\s*Planned/i.test(text)) {
+          return null;
+        }
+
+        // Extract Points
+        const pointsMatch = text.match(/\|\s*Points\s*\|\s*([^|\n\r]+)\s*\|/i);
+        if (pointsMatch) lab.points = pointsMatch[1].trim();
+
+        // Extract Status
+        const statusMatch = text.match(/\|\s*Status\s*\|\s*([^|\n\r]+)\s*\|/i);
+        if (statusMatch) {
+          const statusVal = statusMatch[1].trim();
+          if (/planned/i.test(statusVal)) return null;
+        }
+
+        // Extract Category if defined in metadata table
+        const catMatch = text.match(/\|\s*Category\s*\|\s*([^|\n\r]+)\s*\|/i);
+        if (catMatch) lab.category = catMatch[1].trim();
+
+        // Extract Difficulty if defined in metadata table
+        const diffMatch = text.match(/\|\s*Difficulty\s*\|\s*([^|\n\r]+)\s*\|/i);
+        if (diffMatch) lab.difficulty = diffMatch[1].trim();
+
+        // Extract Summary / Objective
+        const blockquoteMatch = text.match(/^>\s*([^\n\r]+)/m);
+        const objMatch = text.match(/(?:##\s*(?:\d+\.\s*)?Lab Objective|###\s*Objective)[\s\S]*?\n\n([^\n#]+)/i);
+        if (blockquoteMatch && !blockquoteMatch[1].startsWith('[!')) {
+          lab.summary = blockquoteMatch[1].trim();
+        } else if (objMatch) {
+          lab.summary = objMatch[1].trim().replace(/\*\*/g, '');
+        }
+
+        // Extract Key Vulnerability / Primary Finding
+        const vulnMatch = text.match(/\*\*Vulnerability:\*\*\s*([^\n\r]+)/i) ||
+                          text.match(/###\s*Primary Finding\s*\n+([^\n#\r]+)/i);
+        if (vulnMatch) {
+          lab.vulnerability = vulnMatch[1].trim();
+        }
+
+        // Extract Tools
+        const lines = text.split('\n');
+        let inTools = false;
+        const toolsFound = [];
+        for (let line of lines) {
+          if (/Tools Used/i.test(line)) { inTools = true; continue; }
+          if (inTools && line.trim().startsWith('- ')) {
+            const tool = line.replace('- ', '').trim();
+            if (tool && !tool.startsWith('[')) toolsFound.push(tool);
+          } else if (inTools && (line.startsWith('#') || (line.trim() === '' && toolsFound.length > 0))) {
+            if (toolsFound.length > 0) break;
+          }
+        }
+        if (toolsFound.length > 0) {
+          lab.tools = toolsFound.slice(0, 4);
+        }
+
+        return lab;
+      } catch (e) {
+        return lab;
+      }
+    }
+
+    async function fetchWalkthroughs(forceRefresh = false) {
+      showLoading();
+      statusText.textContent = 'Syncing...';
+
+      // 1. Check local storage cache unless forceRefresh is true
+      if (!forceRefresh) {
+        try {
+          const cached = localStorage.getItem(CACHE_KEY);
+          if (cached) {
+            const parsed = JSON.parse(cached);
+            if (Date.now() - parsed.timestamp < CACHE_TTL_MS && parsed.data && parsed.data.length > 0) {
+              allLabs = parsed.data;
+              renderLabs();
+              statusText.textContent = 'Cached';
+              return;
+            }
+          }
+        } catch (e) {
+          // Ignore cache read failures
+        }
+      }
+
+      // 2. Fetch repo tree from GitHub REST API
+      const apiUrl = `https://api.github.com/repos/${REPO_OWNER}/${REPO_NAME}/git/trees/${REPO_BRANCH}?recursive=1`;
+
+      try {
+        const res = await fetch(apiUrl, { headers: { 'Accept': 'application/vnd.github.v3+json' } });
+
+        if (!res.ok) {
+          throw new Error(`GitHub API returned status ${res.status}`);
+        }
+
+        const data = await res.json();
+        if (!data.tree || !Array.isArray(data.tree)) {
+          throw new Error('Malformed tree returned by GitHub API');
+        }
+
+        // 3. Filter tree for lab candidates
+        const candidates = [];
+        for (const item of data.tree) {
+          if (item.type === 'blob') {
+            const lab = parseLabEntry(item.path);
+            if (lab) candidates.push(lab);
+          }
+        }
+
+        // 4. Enrich lab candidates in parallel
+        const enrichedResults = await Promise.all(candidates.map(enrichLab));
+        allLabs = enrichedResults.filter(Boolean);
+
+        // 5. Save to local storage cache
+        try {
+          localStorage.setItem(CACHE_KEY, JSON.stringify({
+            timestamp: Date.now(),
+            data: allLabs
+          }));
+        } catch (e) {}
+
+        statusText.textContent = 'Live Sync';
+        renderLabs();
+      } catch (err) {
+        console.error('GitHub API error:', err);
+        statusText.textContent = 'Sync Error';
+        showError(err.message || 'Unable to connect to GitHub API');
+      }
+    }
+
+    function showError(errorMessage) {
+      counter.textContent = 'Connection error';
+      grid.innerHTML = `
+        <div class="wt-error">
+          <h4>Unable to Load Walkthroughs from GitHub</h4>
+          <p>${escapeHtml(errorMessage)}</p>
+          <button class="wt-retry-btn" id="wtRetryBtn">↻ Retry Connection</button>
+          <p style="margin-top:14px;font-size:12px">
+            You can browse all documented walkthroughs directly on GitHub:<br>
+            <a class="textlink" href="https://github.com/${REPO_OWNER}/${REPO_NAME}" target="_blank" rel="noopener">
+              https://github.com/${REPO_OWNER}/${REPO_NAME} →
+            </a>
+          </p>
+        </div>
+      `;
+      const retry = document.getElementById('wtRetryBtn');
+      if (retry) {
+        retry.addEventListener('click', () => fetchWalkthroughs(true));
+      }
+    }
+
+    function renderLabs() {
+      const filtered = allLabs.filter(lab => {
+        const matchesPlatform = currentPlatformFilter === 'all' || lab.platform.toLowerCase() === currentPlatformFilter.toLowerCase();
+        const matchesDifficulty = currentDifficultyFilter === 'all' || lab.difficulty.toLowerCase() === currentDifficultyFilter.toLowerCase();
+        return matchesPlatform && matchesDifficulty;
+      });
+
+      counter.textContent = `${filtered.length} Walkthrough${filtered.length === 1 ? '' : 's'}`;
+
+      if (filtered.length === 0) {
+        grid.innerHTML = `
+          <div class="wt-empty">
+            <h4 style="color:var(--text);margin:0 0 8px;font-size:18px">No walkthroughs found</h4>
+            <p style="margin:0">No lab walkthroughs currently match the selected platform and difficulty filters.</p>
+          </div>
+        `;
+        return;
+      }
+
+      grid.innerHTML = filtered.map(lab => {
+        const diffClass = lab.difficulty.toLowerCase() === 'easy' ? 'wt-badge-diff-easy' :
+                          lab.difficulty.toLowerCase() === 'medium' ? 'wt-badge-diff-medium' : 'wt-badge-diff-hard';
+
+        const pointsBadge = lab.points ? `<span class="wt-points">${escapeHtml(lab.points)} Pts</span>` : '';
+        const findingBlock = lab.vulnerability ? `
+          <div class="wt-finding">
+            <span class="wt-finding-title">Key Finding / Vulnerability</span>
+            <div class="wt-finding-desc">${escapeHtml(lab.vulnerability)}</div>
+          </div>
+        ` : '';
+
+        const toolsBlock = (lab.tools && lab.tools.length > 0) ? `
+          <div class="wt-tools">
+            ${lab.tools.map(t => `<span class="wt-tool-tag">${escapeHtml(t)}</span>`).join('')}
+          </div>
+        ` : '';
+
+        const summaryText = lab.summary || `Detailed technical walkthrough and vulnerability analysis for ${escapeHtml(lab.labName)}.`;
+
+        return `
+          <article class="wt-card">
+            <div class="wt-card-header">
+              <div class="wt-badges">
+                <span class="wt-badge wt-badge-platform">${escapeHtml(lab.platform)}</span>
+                <span class="wt-badge wt-badge-cat">${escapeHtml(lab.category)}</span>
+                <span class="wt-badge ${diffClass}">${escapeHtml(lab.difficulty)}</span>
+              </div>
+              ${pointsBadge}
+            </div>
+
+            <h3>${escapeHtml(lab.labName)}</h3>
+            <p>${escapeHtml(summaryText)}</p>
+
+            ${findingBlock}
+            ${toolsBlock}
+
+            <div class="wt-card-action">
+              <span style="font-size:12px;color:var(--muted)">Verified Documentation</span>
+              <a class="wt-link" href="${escapeHtml(lab.githubUrl)}" target="_blank" rel="noopener">
+                View Walkthrough on GitHub →
+              </a>
+            </div>
+          </article>
+        `;
+      }).join('');
+    }
+
+    function showLoading() {
+      counter.textContent = 'Discovering labs...';
+      grid.innerHTML = `
+        <div class="wt-skeleton"></div>
+        <div class="wt-skeleton"></div>
+      `;
+    }
+
+    function escapeHtml(str) {
+      if (!str) return '';
+      return String(str)
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;')
+        .replace(/'/g, '&#39;');
+    }
+
+    // Attach Filter Event Handlers
+    document.getElementById('platformFilters').addEventListener('click', e => {
+      if (e.target.tagName !== 'BUTTON') return;
+      document.querySelectorAll('#platformFilters .wt-filter-btn').forEach(btn => btn.classList.remove('active'));
+      e.target.classList.add('active');
+      currentPlatformFilter = e.target.getAttribute('data-platform');
+      renderLabs();
+    });
+
+    document.getElementById('difficultyFilters').addEventListener('click', e => {
+      if (e.target.tagName !== 'BUTTON') return;
+      document.querySelectorAll('#difficultyFilters .wt-filter-btn').forEach(btn => btn.classList.remove('active'));
+      e.target.classList.add('active');
+      currentDifficultyFilter = e.target.getAttribute('data-difficulty');
+      renderLabs();
+    });
+
+    refreshBtn.addEventListener('click', () => {
+      fetchWalkthroughs(true);
+    });
+
+    // Initialize auto-discovery
+    fetchWalkthroughs();
+  })();
+</script>
+</body>
+</html>
+
